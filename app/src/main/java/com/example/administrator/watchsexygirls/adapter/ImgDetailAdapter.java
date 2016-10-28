@@ -30,7 +30,7 @@ public class ImgDetailAdapter extends MyBaseAdapter<ImageDetail.ListBean, ImgDet
     @Override
     protected void bindItemData(ImageDetailViewHolder holder, ImageDetail.ListBean data, int position) {
         Log.i(""+position,data.getGallery()+"");
-        Glide.with(mActivity).load(ApplicationConfig.ImageHost + data.getSrc()).thumbnail(0.5f).fitCenter().error(R.drawable.sexymm).into(holder.picDetail);
+        Glide.with(mActivity).load(ApplicationConfig.ImageHost + data.getSrc()).fitCenter().error(R.drawable.sexymm).into(holder.picDetail);
     }
 
     @Override

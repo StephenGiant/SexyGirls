@@ -5,7 +5,7 @@
 <ImageView
     android:id="@+id/pic_detail"
     android:layout_width="150dp"
-    android:layout_height="wrap_content"
+    android:layout_height="250dp"
     android:src="@drawable/sexymm"
     android:scaleType="centerInside"
 

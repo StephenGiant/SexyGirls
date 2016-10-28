@@ -32,9 +32,10 @@ public class TaotuDetailAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_taotudetail);
         ButterKnife.bind(this);
+        int galleryID = getIntent().getExtras().getInt("galleryID");
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         rvTaotuDetail.setLayoutManager(staggeredGridLayoutManager);
-        RetrofitSingle.getInstance().showImages(100).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        RetrofitSingle.getInstance().showImages(galleryID).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<ImageDetail>() {
                     @Override
                     public void onCompleted() {

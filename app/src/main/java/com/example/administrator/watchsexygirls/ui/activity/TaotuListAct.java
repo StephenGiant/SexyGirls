@@ -32,6 +32,7 @@ public class TaotuListAct extends AppCompatActivity {
     RecyclerView rvTaotulist;
     private ApiInterface apiInterface;
     private TaotuListAdapter taotuListAdapter;
+    private List<FenquDetail> tngou;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +44,9 @@ public class TaotuListAct extends AppCompatActivity {
                 protected void onItemClick(View view, int position) {
                     //do nothing
                     Intent intent = new Intent(TaotuListAct.this, TaotuDetailAct.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("galleryID",tngou.get(position).getId());
+                    intent.putExtras(bundle);
                     TaotuListAct.this.startActivity(intent);
                 }
             });
@@ -63,6 +67,8 @@ public class TaotuListAct extends AppCompatActivity {
 
                     @Override
                     public void onNext(TiangouBase<List<FenquDetail>> listTiangouBase) {
+                        tngou =  listTiangouBase.getTngou();
+
                         taotuListAdapter = new TaotuListAdapter(TaotuListAct.this, listTiangouBase.getTngou());
                         rvTaotulist.setAdapter(taotuListAdapter);
 

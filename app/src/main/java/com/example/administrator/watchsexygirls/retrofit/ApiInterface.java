@@ -38,6 +38,6 @@ public interface ApiInterface {
      * @param id
      * @return
      */
-    @GET("tnfs/api/show")
+    @GET("tnfs/api/show/default.jpg_480x854")
     public Observable<ImageDetail> showImages(@Query("id") int id);
 }
